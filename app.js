@@ -74,7 +74,7 @@ function completeMessageCallback(err) {
   }
 }
 
-var inputPin = 8;
+var inputPin = 6;
 
 wpi.pinMode(inputPin, wpi.INPUT);
 wpi.pullUpDnControl(inputPin, wpi.PUD_DOWN);
