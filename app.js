@@ -82,7 +82,7 @@ wpi.wiringPiISR(inputPin, wpi.INT_EDGE_BOTH, function() {
   if (wpi.digitalRead(configPin)) {
     if (false === started) {
       started = true;
-      clock = setTimeout(handleButton, 300);
+      clock = setTimeout(handleButton, 500);
     }
   }
   else {
