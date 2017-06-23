@@ -76,9 +76,9 @@ function completeMessageCallback(err) {
 
 
 wpi.pinMode(8, wpi.INPUT);
-wpi.pullUpDnControl(8, wpi.PUD_UP);
-wpi.wiringPiISR(8, wpi.INT_EDGE_BOTH, function(delta) {
-  console.log('Pin 8 changed to LOW (', delta, ')');
+wpi.pullUpDnControl(8, wpi.PUD_DOWN);
+wpi.wiringPiISR(8, wpi.INT_EDGE_BOTH, function() {
+  console.log('Pin 8 changed to LOW');
 });
 
 /**
