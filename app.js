@@ -79,7 +79,7 @@ var started = false;
 var clock = null;
 
 wpi.pinMode(inputPin, wpi.INPUT);
-wpi.pullUpDnControl(inputPin, wpi.PUD_DOWN);
+wpi.pullUpDnControl(inputPin, wpi.PUD_UP);
 wpi.wiringPiISR(inputPin, wpi.INT_EDGE_BOTH, function() {
   if (wpi.digitalRead(inputPin)) {
     if (false === started) {
