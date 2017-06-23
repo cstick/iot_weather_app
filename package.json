@@ -1,0 +1,12 @@
+{
+    "name": "iot-weather-app",
+    "version": "1.0.0",
+    "description": "It puts the weather on its LED.",
+    "main": "app.js",
+    "license": "NO",
+    "dependencies": {
+        "azure-iot-device": "^1.1.14",
+        "azure-iot-device-mqtt": "^1.1.14",
+        "wiringpi-node": "^2.4.4"
+    }
+}
