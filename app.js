@@ -74,6 +74,13 @@ function completeMessageCallback(err) {
   }
 }
 
+
+wpi.pinMode(8, wpi.INPUT);
+wpi.pullUpDnControl(8, wpi.PUD_UP);
+wpi.wiringPiISR(8, wpi.INT_EDGE_FALLING, function(delta) {
+  console.log('Pin 8 changed to LOW (', delta, ')');
+});
+
 /**
  * Log information to console when closing connection to IoT Hub.
  * @param {string}  err - close connection error
