@@ -74,12 +74,28 @@ function completeMessageCallback(err) {
   }
 }
 
+var inputPin = 8;
 
-wpi.pinMode(8, wpi.INPUT);
-wpi.pullUpDnControl(8, wpi.PUD_DOWN);
-wpi.wiringPiISR(8, wpi.INT_EDGE_BOTH, function() {
-  console.log('Pin 8 changed to LOW');
+wpi.pinMode(inputPin, wpi.INPUT);
+wpi.pullUpDnControl(inputPin, wpi.PUD_DOWN);
+wpi.wiringPiISR(inputPin, wpi.INT_EDGE_BOTH, function() {
+  if (wpi.digitalRead(configPin)) {
+    if (false === started) {
+      started = true;
+      clock = setTimeout(handleButton, 3000);
+    }
+  }
+  else {
+    started = false;
+    clearTimeout(clock);
+  }
 });
+
+function handleButton() {
+  if (wpi.digitalRead(inputPin)) {
+    console.log('OK');
+  }
+}
 
 /**
  * Log information to console when closing connection to IoT Hub.
