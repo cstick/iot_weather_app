@@ -76,12 +76,12 @@ function completeMessageCallback(err) {
 
 var inputPin = 29;
 var started = false;
-var clock;
+var clock = null;
 
 wpi.pinMode(inputPin, wpi.INPUT);
 wpi.pullUpDnControl(inputPin, wpi.PUD_DOWN);
 wpi.wiringPiISR(inputPin, wpi.INT_EDGE_BOTH, function() {
-  if (wpi.digitalRead(configPin)) {
+  if (wpi.digitalRead(inputPin)) {
     if (false === started) {
       started = true;
       clock = setTimeout(handleButton, 500);
